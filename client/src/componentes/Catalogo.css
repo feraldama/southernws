@@ -1,0 +1,33 @@
+.container {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-bottom: 15px;
+}
+
+.prueba {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* background-color: white; */
+  padding-bottom: 10px;
+  /* box-shadow: 5px 5px 15px rgb(0 0 0 / 25%); */
+  border-bottom: 2px solid #4dc591;
+  align-items: center;
+}
+
+@media screen and (max-width: 550px) {
+  .prueba {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.imageRueda {
+  cursor: pointer;
+}
+
+.imageRueda:hover {
+  color: blue;
+}
