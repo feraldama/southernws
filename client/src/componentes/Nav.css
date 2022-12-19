@@ -25,7 +25,7 @@
 }
 
 .titulo {
-  color: #1f8a5c;
+  color: #652D90;
 }
 
 .nav-container {
@@ -36,7 +36,7 @@
   padding: 20px;
   margin-bottom: 50px;
   box-shadow: 5px 5px 15px rgb(0 0 0 / 25%);
-  border-bottom: 5px solid #1f8a5c;
+  border-bottom: 5px solid #652D90;
   align-items: center;
   /* margin-bottom: 10px; */
 }
@@ -51,14 +51,14 @@
 }
 
 .button-search {
-  border: 2px solid #1f8a5c;
+  border: 2px solid #652D90;
   background-color: white;
-  color: #1f8a5c;
+  color: #652D90;
   width: 120px;
 }
 
 .button-search:hover {
-  background-color: #1f8a5c;
+  background-color: #652D90;
   color: white;
 }
 

@@ -98,7 +98,7 @@ const Catalogo = () => {
     return (
       <div>
         <div className="container">
-          <h1>All data received</h1>
+          <h3>All data received</h3>
         </div>
         <div className="container">
           {/* <input
@@ -124,7 +124,7 @@ const Catalogo = () => {
           <h1>How many days?</h1>
           <input
             className="form-control me-2"
-            type="search"
+            type="number"
             placeholder="Quantity of entries..."
             aria-label="Search"
             onChange={handleChange}
@@ -139,14 +139,17 @@ const Catalogo = () => {
     );
   } else if (data == "buscando") {
     return (
-      <div className="container">
-        <h1>Wait</h1>
+      <div>
+        <div className="spinner-border text-primary" role="status"></div>
+        <div className="container">
+          <h3 className="text">Wait</h3>
+        </div>
       </div>
     );
   } else {
     return (
       <div className="container">
-        <h1>All data SAVED</h1>
+        <h3>All data SAVED</h3>
       </div>
     );
   }
