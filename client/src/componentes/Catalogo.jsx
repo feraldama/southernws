@@ -125,6 +125,7 @@ const Catalogo = () => {
           <input
             className="form-control me-2"
             type="number"
+            min="0"
             placeholder="Quantity of entries..."
             aria-label="Search"
             onChange={handleChange}
