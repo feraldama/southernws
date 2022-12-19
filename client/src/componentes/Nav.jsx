@@ -7,16 +7,15 @@ const Nav = () => {
     <nav className="nav-container">
       <div className="img-container">
         <div className="nolink">
-          <div>
-            <img
-              id="logoLATAM"
-              src={Logo}
-              width="160"
-              height="65"
-              alt="Logo LATAM"
-              onClick="window.location.reload()"
-            />
-          </div>
+          <img
+            id="logoSOUTHERN"
+            className="img"
+            src={Logo}
+            width="160"
+            height="65"
+            alt="Southern Logo"
+            onClick={() => window.location.reload()}
+          />
         </div>
       </div>
       <br />

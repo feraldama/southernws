@@ -11,12 +11,6 @@ const Catalogo = () => {
   const [data, setData] = useState("vacio");
   const [until, setUntil] = useState(0);
   const [entries, setEntries] = useState(0);
-  // useEffect(() => {
-  //   collect();
-  //   // axios
-  //   //   .get("http://localhost:3001/vehicles/actives")
-  //   //   .then((data) => setData(data.data));
-  // }, []);
 
   async function collect(quantity) {
     //***************************************** */
@@ -24,7 +18,6 @@ const Catalogo = () => {
     // console.log("until en collect: ", until);
 
     let query =
-      //boards (ids:[3336692584, 3336692584])
       "{ boards (limit:" +
       quantity +
       ") { name id description items { name column_values { title id type text } } } }";
@@ -45,13 +38,7 @@ const Catalogo = () => {
         // console.log(JSON.stringify(res, null, 2));
         //console.log(res.data.boards[1].items[0]); //; ESTO ES LO QUE MANDO ANTES DE COMENTAR
         console.log(res.data);
-        // console.log(typeof res);
       });
-
-    // axios
-    //   .get("http://localhost:3001/vehicles/actives")
-    //   .then((data) => setData(data.data));
-    //***************************************** */
   }
 
   const guardar = () => {
@@ -87,8 +74,6 @@ const Catalogo = () => {
     }
   };
 
-  // var entries;
-  // var until;
   const handleChange = (e) => {
     setEntries(e.target.value * 2 + 3);
     setUntil(e.target.value * 1);
@@ -101,21 +86,11 @@ const Catalogo = () => {
           <h3>All data received</h3>
         </div>
         <div className="container">
-          {/* <input
-            className="form-control me-2"
-            type="search"
-            placeholder="Quantity of entries..."
-            aria-label="Search"
-            onChange={handleChange}
-          /> */}
-          <button className="btn btn-primary" onClick={() => guardar()}>
+          <button className="btn-primary" onClick={() => guardar()}>
             Save
           </button>
         </div>
       </div>
-      // <div className="container">
-      //   <h1>Espere</h1>
-      // </div>
     );
   } else if (data == "vacio") {
     return (
@@ -132,7 +107,7 @@ const Catalogo = () => {
           />
         </div>
         <div className="container">
-          <button className="btn btn-primary" onClick={() => search()}>
+          <button className="btn-primary" onClick={() => search()}>
             Search
           </button>
         </div>

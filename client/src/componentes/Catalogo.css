@@ -1,19 +1,24 @@
 .container {
   width: 30% !important;
-  /* display: flex; */
-  /* flex-wrap: wrap; */
-  /* justify-content: space-around; */
   padding-bottom: 15px;
+}
+
+.btn-primary {
+  background-color: #652D90;
+  color: white;
+  border-radius: 6px;
+  border-width: 0ch;
+  padding: 13px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 .prueba {
   width: 100%;
   display: flex;
   justify-content: center;
-  /* background-color: white; */
   padding-bottom: 10px;
-  /* box-shadow: 5px 5px 15px rgb(0 0 0 / 25%); */
-  border-bottom: 2px solid #4dc591;
+  border-bottom: 2px solid #652D90;
   align-items: center;
 }
 
