@@ -106,8 +106,12 @@ server.post("/", (req, res, next) => {
     Thur,
     Fri,
     Total,
+    DateOpened,
+    Deadline,
     Date,
+    AE,
     Employee,
+    ExpectedDate,
   } = req.body;
   // console.log("JobNumber", JobNumber);
   // console.log(
@@ -145,6 +149,7 @@ server.post("/", (req, res, next) => {
   var Thur = Thur * 1;
   var Fri = Fri * 1;
   var Total = Total * 1;
+  // console.log("log: 🚀  Total: ", Total);
   var Deadline = Deadline * 1;
   // console.log("monday: ", Mon);
 
@@ -166,9 +171,12 @@ server.post("/", (req, res, next) => {
     Thur,
     Fri,
     Total,
+    DateOpened,
     Deadline,
     Date,
+    AE,
     Employee,
+    ExpectedDate,
   })
     .then((vehicle) => {
       // vehicle.setCategory(categories).catch((err) => console.error(err));

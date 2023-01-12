@@ -58,14 +58,23 @@ module.exports = (sequelize) => {
     Total: {
       type: DataTypes.DOUBLE,
     },
+    DateOpened: {
+      type: DataTypes.DATE,
+    },
     Deadline: {
       type: DataTypes.DOUBLE,
     },
     Date: {
       type: DataTypes.DATE,
     },
+    AE: {
+      type: DataTypes.STRING,
+    },
     Employee: {
       type: DataTypes.STRING,
+    },
+    ExpectedDate: {
+      type: DataTypes.DATE,
     },
     // wheel: {
     //   type: DataTypes.INTEGER,

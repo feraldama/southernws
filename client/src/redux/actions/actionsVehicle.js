@@ -18,8 +18,9 @@ export const getVehicle = (quantity, until) => (dispatch) => {
 export const postVehicle = (data, date) => (dispatch) => {
   console.log("Entra al Actions y manda DATA: ", data);
   data.items.map((p) => {
-    if (p.column_values[19].text) {
-      console.log("ACTIONS map: ", p);
+    if (p.column_values[21].text) {
+      // console.log("ACTIONS map: ", p);
+      // console.log("ACTIONS Total: ", p.column_values[17]);
       // console.log("date: ", date);
       axios.post(`${url}/vehicles`, {
         JobNumber: p.column_values[4].text,
@@ -39,9 +40,12 @@ export const postVehicle = (data, date) => (dispatch) => {
         Thur: p.column_values[15].text,
         Fri: p.column_values[16].text,
         Total: p.column_values[17].text,
-        Deadline: p.column_values[18].text,
+        DateOpened: p.column_values[18].text,
+        Deadline: p.column_values[19].text,
         Date: date,
-        Employee: p.column_values[19].text,
+        AE: p.column_values[20].text,
+        Employee: p.column_values[21].text,
+        ExpectedDate: p.column_values[22].text,
       });
     }
   });
