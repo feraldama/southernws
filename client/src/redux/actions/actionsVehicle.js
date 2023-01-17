@@ -3,21 +3,21 @@ import axios from "axios";
 const url = "http://localhost:3001";
 
 export const getVehicle = (quantity, until) => (dispatch) => {
-  console.log("quantity: ", quantity, " - until: ", until);
+  // console.log("quantity: ", quantity, " - until: ", until);
   axios
     .post(`${url}/vehicles/monday`, {
       quantity: quantity,
       until: until,
     })
     .then((data) => {
-      console.log("then ~ data: ", data);
+      // console.log("then ~ data: ", data);
       return data;
     });
 };
 
 export const postVehicle = (data, date) => (dispatch) => {
-  console.log("Entra al Actions y manda DATA: ", data);
-  data.items.map((p) => {
+  // console.log("Entra al Actions y manda DATA: ", data);
+  data.items.forEach((p) => {
     if (p.column_values[21].text) {
       // console.log("ACTIONS map: ", p);
       // console.log("ACTIONS Total: ", p.column_values[17]);
@@ -51,6 +51,15 @@ export const postVehicle = (data, date) => (dispatch) => {
   });
 };
 
+export const deleteVehicle = (id) => (dispatch) => {
+  // console.log("log deleteVehicle: 🚀  id: ", id);
+  // axios.delete(`${url}/vehicles/${id}`);
+
+  axios.post(`${url}/vehicles/deleteDate`, {
+    Date: id,
+  });
+};
+
 export const putVehicle = (vehicleSeleccionado) => (dispatch) => {
   // console.log("ACTIONS vehicleSeleccionado: ", vehicleSeleccionado);
   axios
@@ -68,13 +77,4 @@ export const putVehicle = (vehicleSeleccionado) => (dispatch) => {
         payload: data.data,
       });
     });
-};
-
-export const deleteVehicle = (id) => (dispatch) => {
-  axios.delete(`${url}/vehicles/${id}`).then((data) => {
-    dispatch({
-      type: "DELETE_VEHICLE",
-      payload: data.data,
-    });
-  });
 };

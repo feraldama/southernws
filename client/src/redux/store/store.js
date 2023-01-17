@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import reducerVehicle from "../reducers/reducerVehicle";
-import reducerCategory from "../reducers/reducerCategory";
-import reducerRfid from "../reducers/reducerRfid";
+// import reducerCategory from "../reducers/reducerCategory";
+// import reducerRfid from "../reducers/reducerRfid";
 // import reducerUser from '../reducers/reducerUser';
 // import reducerOrder from '../reducers/reducerOrder';
 // import reducerCart from '../reducers/reducerCart';
@@ -13,9 +13,9 @@ const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   combineReducers({
     // reducerUser,
-    reducerCategory,
+    // reducerCategory,
     reducerVehicle,
-    reducerRfid,
+    // reducerRfid,
     // reducerOrder,
     // reducerCart,
     // reducerReview,

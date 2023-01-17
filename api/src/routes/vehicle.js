@@ -8,7 +8,7 @@ server.use(upload());
 
 // Obtener todos los vehuculos
 server.post("/monday", (req, res, next) => {
-  console.log("req.body BACK: ", req.body);
+  // console.log("req.body BACK: ", req.body);
   res.send({ vehicles: 15 });
   // Vehicle.findAll({ include: [Category] }) //Busco todos los vehiculos
   //   .then((vehicles) => {
@@ -84,6 +84,65 @@ server.put("/:id", (req, res, next) => {
         .catch((err) => res.status(400).send(err));
     })
     .catch(next);
+});
+
+// Eliminar registros de fecha recibida
+server.post("/eliminarFecha", (req, res, next) => {
+  // console.log("log: 🚀  req.body: ", req.body);
+
+  var { Date } = req.body;
+
+  server.delete("/eliminarFecha", (req, res, next) => {
+    // console.log("log: 🚀  req.params.id: ", req.params.id);
+
+    // console.log("log: 🚀  Date: ", Date);
+    const query = req.params.id;
+    Vehicle.findAll({
+      where: {
+        Date: {
+          [Op.gte]: moment().subtract(7, "days").toDate(),
+        },
+      },
+    })
+      .then((data) => {
+        // console.log("data: ".data);
+        res.status(200).send(data);
+      })
+      .catch(next);
+
+    // Vehicle.findAll({
+    //   where: {
+    //     [Op.or]: {
+    //       Date: {
+    //         [Op.like]: `%${Date}%`,
+    //       },
+    //       // name: {
+    //       //   [Op.like]: `%${query}%`,
+    //       // },
+    //       // description: {
+    //       //   [Op.like]: `%${query}%`,
+    //       // },
+    //     },
+    //   },
+    //   // include: [Category],
+    // })
+    //   .then((data) => {
+    //     console.log("data: ".data);
+    //     res.status(200).send(data);
+    //   })
+    //   .catch(next);
+
+    //************************ ESTO ESTABA ANTES ************************//
+    // Vehicle.findByPk(req.params.id)
+    //   .then((vehicle) => {
+    //     if (!vehicle) return res.status(400).send("El registro no existe");
+    //     Vehicle.update({ active: false }, { where: { id: req.params.id } })
+    //       .then(() => (vehi = Vehicle.findByPk(req.params.id)))
+    //       .then((vehi) => res.status(200).send(vehi))
+    //       .catch((err) => res.status(400).send(err));
+    //   })
+    //   .catch(next);
+  });
 });
 
 // Crear/Agregar un vehiculo
@@ -192,7 +251,7 @@ server.post("/", (req, res, next) => {
       // });
     })
     .catch((error) => {
-      console.log("error: ", error);
+      // console.log("error: ", error);
       res.status(400).send(error);
     });
 });
@@ -293,22 +352,22 @@ server.get("/search/:id", (req, res, next) => {
     },
     include: [Category],
   })
-    .then((data) => res.status(200).send(data))
+    .then((data) => res.status(200))
+    .catch(console.log(e));
+});
+
+// Eliminar Date para que no haya duplicados
+server.post("/deleteDate", (req, res, next) => {
+  const { Date } = req.body;
+  // console.log("log: 🚀  req.body 2: ", req.body);
+  // res.status(200).send(Date);
+  // productId = req.params.id;
+  // id = req.params.idReview;
+  Vehicle.destroy({ where: { Date } })
+    .then(() => res.status(200).send(id))
     .catch(next);
 });
 
-// Eliminar un vehiculo
-server.delete("/:id", (req, res, next) => {
-  Vehicle.findByPk(req.params.id)
-    .then((vehicle) => {
-      if (!vehicle) return res.status(400).send("El registro no existe");
-      Vehicle.update({ active: false }, { where: { id: req.params.id } })
-        .then(() => (vehi = Vehicle.findByPk(req.params.id)))
-        .then((vehi) => res.status(200).send(vehi))
-        .catch((err) => res.status(400).send(err));
-    })
-    .catch(next);
-});
 module.exports = server;
 
 // // Eliminar Review
