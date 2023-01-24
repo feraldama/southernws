@@ -69,7 +69,7 @@ const Catalogo = () => {
   };
 
   const search = () => {
-    if (typeof entries !== "number" || entries <= 25) {
+    if (typeof entries !== "number" || entries <= 53) {
       setData("buscando");
       // console.log("Entries: ", entries);
       // console.log("Until: ", until);
