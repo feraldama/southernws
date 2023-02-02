@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:3001";
+const url = "http://181.127.189.247:3003";
 
 export const getVehicle = (quantity, until) => (dispatch) => {
   // console.log("quantity: ", quantity, " - until: ", until);
