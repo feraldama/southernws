@@ -45,11 +45,11 @@ module.exports = (sequelize) => {
     },
     image: {
       type: DataTypes.STRING,
-      defaultValue: "http://localhost:8081/Rfids/rfidDefecto.png",
+      defaultValue: "http://181.127.189.247:8081/Rfids/rfidDefecto.png",
     },
     invoiceImage: {
       type: DataTypes.STRING,
-      defaultValue: "http://localhost:8081/Facturas/facturaDefecto.jpg",
+      defaultValue: "http://181.127.189.247:8081/Facturas/facturaDefecto.jpg",
     },
     active: {
       type: DataTypes.BOOLEAN,

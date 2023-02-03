@@ -18,7 +18,7 @@
     "xlsx": "^0.17.0"
   },
   "scripts": {
-    "start": "nodemon -L",
+    "start": "set PORT=3003 && nodemon -L",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
