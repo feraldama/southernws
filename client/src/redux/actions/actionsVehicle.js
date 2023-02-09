@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "https://5fd1-181-127-189-247.sa.ngrok.io";
+const url = "https://0f4f-181-127-189-247.sa.ngrok.io";
 
 export const getVehicle = (quantity, until) => (dispatch) => {
   // console.log("quantity: ", quantity, " - until: ", until);
